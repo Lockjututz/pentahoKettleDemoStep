@@ -12,7 +12,7 @@
 	<property name="classes" location="classes" />
 	<property name="dist" location="dist" />
 	<property name="diststep" location="${dist}/steps/Demo" />
-	<property name="pluginname" value="Demo" />
+	<property name="pluginname" value="DemoByMatts" />
 	<property name="jarfilename" value="demo-step.jar" />
 
 	<!-- used to compile code -->
@@ -57,7 +57,7 @@
 		<property name="kettle-dir" location="your_kettle_5.x_dir_here" />
 		<available file="${kettle-dir}" type="dir" property="kettle-dir.present" />
 
-		<fail unless="kettle-dir.present" message="PDI installation not found. Please specify the path to your PDI installation in build/build.properties" />
+		<fail unless="kettle-dir.present" message="PDI installation not found in ${kettle-dir}. Please specify the path to your PDI installation in build/build.properties" />
 		
 		<!-- remove previous installations -->
 		<delete dir="${kettle-dir}/plugins/steps/${pluginname}" />
