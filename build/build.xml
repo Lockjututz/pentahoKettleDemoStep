@@ -11,7 +11,7 @@
 	<property name="src" location="src" />
 	<property name="classes" location="classes" />
 	<property name="dist" location="dist" />
-	<property name="diststep" location="${dist}/steps/Demo" />
+	<property name="diststep" location="${dist}/steps/DemoByMatts" />
 	<property name="pluginname" value="DemoByMatts" />
 	<property name="jarfilename" value="demo-step.jar" />
 
@@ -27,10 +27,15 @@
 	</target>
 
 	<target name="compile" depends="init" description="compile the source ">
+		<artifact:dependencies pathId="dependency.classpath">
+			<dependency groupId="junit" artifactId="junit" version="3.8.2" scope="test"/>
+			<dependency groupId="org.codehaus.modello" artifactId="modello-core" version="1.0-alpha-2-SNAPSHOT"/>
+			<dependency groupId="javax.servlet" artifactId="servlet-api" version="2.4" scope="provided"/>
+		</artifact:dependencies>
 		<mkdir dir="${classes}" />
 		<javac source="1.6" target="1.6" srcdir="${src}" destdir="${classes}" debuglevel="lines,vars,source" debug="true">
 			<classpath refid="compile.classpath" />
-
+			<classpath refid="dependency.classpath" />
 		</javac>
 	</target>
 
